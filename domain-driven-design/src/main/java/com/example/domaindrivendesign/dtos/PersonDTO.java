@@ -1,6 +1,6 @@
-package com.example.domaindrivendesign.domains.dtos;
+package com.example.domaindrivendesign.dtos;
 
-import com.example.domaindrivendesign.domains.models.Person;
+import com.example.domaindrivendesign.models.Person;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

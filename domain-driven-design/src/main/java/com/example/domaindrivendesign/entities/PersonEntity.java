@@ -1,6 +1,6 @@
-package com.example.domaindrivendesign.infrastructures.entities;
+package com.example.domaindrivendesign.entities;
 
-import com.example.domaindrivendesign.domains.models.Person;
+import com.example.domaindrivendesign.models.Person;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

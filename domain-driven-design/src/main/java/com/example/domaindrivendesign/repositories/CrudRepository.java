@@ -1,16 +1,16 @@
-package com.example.domaindrivendesign.domains.services;
+package com.example.domaindrivendesign.repositories;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface CrudService <T> {
+public interface CrudRepository <T> {
 
     Page<T> findAll(Pageable pageable);
     List<T> findAll();
-    T findById(long id);
+    Optional<T> findById(long id);
     T save(T t);
-    T update(T t, long id);
     void delete(long id);
 }

@@ -1,8 +1,8 @@
-package com.example.domaindrivendesign.adapters.impl;
+package com.example.domaindrivendesign.controllers.impl;
 
-import com.example.domaindrivendesign.adapters.PersonController;
-import com.example.domaindrivendesign.domains.dtos.PersonDTO;
-import com.example.domaindrivendesign.domains.services.PersonService;
+import com.example.domaindrivendesign.controllers.PersonController;
+import com.example.domaindrivendesign.dtos.PersonDTO;
+import com.example.domaindrivendesign.services.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +18,6 @@ import java.util.List;
 public class PersonControllerImpl implements PersonController {
 
     private final PersonService personService;
-
 
     @Override
     @GetMapping("/paginado")
@@ -39,6 +38,12 @@ public class PersonControllerImpl implements PersonController {
     }
 
     @Override
+    @GetMapping("/name/{name}")
+    public ResponseEntity<PersonDTO> findByName(@PathVariable String name) {
+        return ResponseEntity.status(HttpStatus.OK).body(personService.findByName(name));
+    }
+
+    @Override
     @PostMapping
     public ResponseEntity<PersonDTO> save(@RequestBody PersonDTO personDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(personService.save(personDTO));
@@ -56,4 +61,6 @@ public class PersonControllerImpl implements PersonController {
         personService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+
 }

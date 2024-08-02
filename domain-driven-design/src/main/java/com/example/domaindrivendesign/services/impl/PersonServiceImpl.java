@@ -1,10 +1,10 @@
-package com.example.domaindrivendesign.domains.services.impl;
+package com.example.domaindrivendesign.services.impl;
 
-import com.example.domaindrivendesign.domains.dtos.PersonDTO;
-import com.example.domaindrivendesign.domains.models.Person;
-import com.example.domaindrivendesign.domains.repositories.PersonRepository;
-import com.example.domaindrivendesign.domains.services.PersonService;
-import com.example.domaindrivendesign.domains.services.exceptions.ResourceNotFoundException;
+import com.example.domaindrivendesign.dtos.PersonDTO;
+import com.example.domaindrivendesign.models.Person;
+import com.example.domaindrivendesign.repositories.PersonRepository;
+import com.example.domaindrivendesign.services.PersonService;
+import com.example.domaindrivendesign.services.exceptions.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
@@ -42,6 +42,12 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    public PersonDTO findByName(String name) {
+        Person person = personRepository.findByName(name).orElseThrow(() -> new ResourceNotFoundException("Nenhuma pessoa encontrada"));
+        return new PersonDTO(person);
+    }
+
+    @Override
     public PersonDTO save(PersonDTO personDTO) {
         Person person = new Person();
         personDTO.copyToPerson(person);
@@ -65,4 +71,6 @@ public class PersonServiceImpl implements PersonService {
             throw new ResourceNotFoundException("Nenhuma pessoa encontrada");
         }
     }
+
+
 }

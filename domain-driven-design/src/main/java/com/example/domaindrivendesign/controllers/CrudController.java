@@ -1,4 +1,4 @@
-package com.example.domaindrivendesign.adapters;
+package com.example.domaindrivendesign.controllers;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,7 +1,7 @@
-package com.example.domaindrivendesign.framework;
+package com.example.domaindrivendesign.configs;
 
-import com.example.domaindrivendesign.domains.repositories.PersonRepository;
-import com.example.domaindrivendesign.domains.services.impl.PersonServiceImpl;
+import com.example.domaindrivendesign.repositories.PersonRepository;
+import com.example.domaindrivendesign.services.impl.PersonServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

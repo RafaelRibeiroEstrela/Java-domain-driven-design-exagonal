@@ -1,4 +1,4 @@
-package com.example.domaindrivendesign.domains.models;
+package com.example.domaindrivendesign.models;
 
 import lombok.Data;
 

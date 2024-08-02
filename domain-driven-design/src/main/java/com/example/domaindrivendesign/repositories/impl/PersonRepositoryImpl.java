@@ -1,10 +1,10 @@
-package com.example.domaindrivendesign.infrastructures.repositories.impl;
+package com.example.domaindrivendesign.repositories.impl;
 
-import com.example.domaindrivendesign.domains.models.Person;
-import com.example.domaindrivendesign.domains.repositories.PersonRepository;
-import com.example.domaindrivendesign.infrastructures.entities.PersonEntity;
-import com.example.domaindrivendesign.infrastructures.repositories.PersonJpaRepository;
-import com.example.domaindrivendesign.infrastructures.repositories.excetpions.DatabaseException;
+import com.example.domaindrivendesign.models.Person;
+import com.example.domaindrivendesign.repositories.PersonRepository;
+import com.example.domaindrivendesign.entities.PersonEntity;
+import com.example.domaindrivendesign.repositories.framework.PersonJpaRepository;
+import com.example.domaindrivendesign.repositories.excetpions.DatabaseException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,6 +38,11 @@ public class PersonRepositoryImpl implements PersonRepository {
     }
 
     @Override
+    public Optional<Person> findByName(String name) {
+        return personJpaRepository.findByName(name).map(PersonEntity::toPerson);
+    }
+
+    @Override
     public Person save(Person person) {
         PersonEntity personEntity = new PersonEntity(person);
         personEntity = personJpaRepository.save(personEntity);
@@ -52,4 +57,5 @@ public class PersonRepositoryImpl implements PersonRepository {
             throw new DatabaseException("Erro de constraint: " + e.getMessage());
         }
     }
+
 }
