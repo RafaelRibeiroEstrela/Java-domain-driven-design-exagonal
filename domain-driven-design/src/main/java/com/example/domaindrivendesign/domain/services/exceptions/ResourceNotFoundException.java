@@ -1,4 +1,4 @@
-package com.example.domaindrivendesign.domains.services.exceptions;
+package com.example.domaindrivendesign.domain.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 

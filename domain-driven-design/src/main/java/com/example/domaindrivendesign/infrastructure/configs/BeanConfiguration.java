@@ -1,12 +1,12 @@
-package com.example.domaindrivendesign.framework;
+package com.example.domaindrivendesign.infrastructure.configs;
 
-import com.example.domaindrivendesign.domains.repositories.PersonRepository;
-import com.example.domaindrivendesign.domains.services.impl.PersonServiceImpl;
+import com.example.domaindrivendesign.domain.repositories.PersonRepository;
+import com.example.domaindrivendesign.domain.services.impl.PersonServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class PersonServiceInjection {
+public class BeanConfiguration {
 
     @Bean
     public PersonServiceImpl getPersonService(PersonRepository personRepository) {

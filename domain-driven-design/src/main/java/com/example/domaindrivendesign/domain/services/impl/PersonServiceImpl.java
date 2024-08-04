@@ -1,10 +1,10 @@
-package com.example.domaindrivendesign.domains.services.impl;
+package com.example.domaindrivendesign.domain.services.impl;
 
-import com.example.domaindrivendesign.domains.dtos.PersonDTO;
-import com.example.domaindrivendesign.domains.models.Person;
-import com.example.domaindrivendesign.domains.repositories.PersonRepository;
-import com.example.domaindrivendesign.domains.services.PersonService;
-import com.example.domaindrivendesign.domains.services.exceptions.ResourceNotFoundException;
+import com.example.domaindrivendesign.domain.dtos.PersonDTO;
+import com.example.domaindrivendesign.domain.models.Person;
+import com.example.domaindrivendesign.domain.repositories.PersonRepository;
+import com.example.domaindrivendesign.domain.services.PersonService;
+import com.example.domaindrivendesign.domain.services.exceptions.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;

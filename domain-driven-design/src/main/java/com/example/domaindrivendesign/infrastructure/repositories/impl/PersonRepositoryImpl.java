@@ -1,10 +1,10 @@
-package com.example.domaindrivendesign.infrastructures.repositories.impl;
+package com.example.domaindrivendesign.infrastructure.repositories.impl;
 
-import com.example.domaindrivendesign.domains.models.Person;
-import com.example.domaindrivendesign.domains.repositories.PersonRepository;
-import com.example.domaindrivendesign.infrastructures.entities.PersonEntity;
-import com.example.domaindrivendesign.infrastructures.repositories.PersonJpaRepository;
-import com.example.domaindrivendesign.infrastructures.repositories.excetpions.DatabaseException;
+import com.example.domaindrivendesign.domain.models.Person;
+import com.example.domaindrivendesign.domain.repositories.PersonRepository;
+import com.example.domaindrivendesign.infrastructure.entities.PersonEntity;
+import com.example.domaindrivendesign.infrastructure.repositories.PersonJpaRepository;
+import com.example.domaindrivendesign.infrastructure.repositories.excetpions.DatabaseException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

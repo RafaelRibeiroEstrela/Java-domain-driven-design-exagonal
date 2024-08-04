@@ -1,8 +1,8 @@
-package com.example.domaindrivendesign.adapters.impl;
+package com.example.domaindrivendesign.application.impl;
 
-import com.example.domaindrivendesign.adapters.PersonController;
-import com.example.domaindrivendesign.domains.dtos.PersonDTO;
-import com.example.domaindrivendesign.domains.services.PersonService;
+import com.example.domaindrivendesign.application.PersonController;
+import com.example.domaindrivendesign.domain.dtos.PersonDTO;
+import com.example.domaindrivendesign.domain.services.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

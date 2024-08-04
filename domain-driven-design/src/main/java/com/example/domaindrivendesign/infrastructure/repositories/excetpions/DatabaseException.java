@@ -1,4 +1,4 @@
-package com.example.domaindrivendesign.infrastructures.repositories.excetpions;
+package com.example.domaindrivendesign.infrastructure.repositories.excetpions;
 
 public class DatabaseException extends RuntimeException {
 
