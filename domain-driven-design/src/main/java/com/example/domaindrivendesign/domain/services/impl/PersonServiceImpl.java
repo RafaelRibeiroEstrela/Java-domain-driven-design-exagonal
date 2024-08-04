@@ -53,7 +53,7 @@ public class PersonServiceImpl implements PersonService {
     public PersonDTO update(PersonDTO personDTO, long id) {
         Person person = findById(id).toPerson();
         personDTO.copyToPerson(person);
-        person = personRepository.save(person);
+        person = personRepository.update(person);
         return new PersonDTO(person);
     }
 

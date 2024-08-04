@@ -6,6 +6,9 @@ import com.example.domaindrivendesign.infrastructure.entities.PersonEntity;
 import com.example.domaindrivendesign.infrastructure.repositories.PersonJpaRepository;
 import com.example.domaindrivendesign.infrastructure.repositories.excetpions.DatabaseException;
 import org.hibernate.exception.ConstraintViolationException;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
@@ -33,6 +36,7 @@ public class PersonRepositoryImpl implements PersonRepository {
     }
 
     @Override
+    @Cacheable(cacheNames = "persons", key = "#id")
     public Optional<Person> findById(long id) {
         return personJpaRepository.findById(id).map(PersonEntity::toPerson);
     }
@@ -45,6 +49,13 @@ public class PersonRepositoryImpl implements PersonRepository {
     }
 
     @Override
+    @CachePut(cacheNames = "persons", key = "#person.id")
+    public Person update(Person person) {
+        return save(person);
+    }
+
+    @Override
+    @CacheEvict(cacheNames = "persons", key = "#id")
     public void delete(long id) {
         try {
             personJpaRepository.deleteById(id);

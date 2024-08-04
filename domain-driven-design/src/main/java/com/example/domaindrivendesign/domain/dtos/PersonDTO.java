@@ -1,6 +1,8 @@
 package com.example.domaindrivendesign.domain.dtos;
 
 import com.example.domaindrivendesign.domain.models.Person;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +11,10 @@ import lombok.NoArgsConstructor;
 public class PersonDTO {
 
     private Long id;
+
+    @NotEmpty(message = "O nome é obrigatório")
     private String name;
+    @NotNull(message = "A idade é obrigatório")
     private Integer age;
 
     public PersonDTO(Person person) {

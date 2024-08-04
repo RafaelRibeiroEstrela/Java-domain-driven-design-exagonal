@@ -1,8 +1,9 @@
-package com.example.domaindrivendesign.application.impl;
+package com.example.domaindrivendesign.application.controllers.impl;
 
-import com.example.domaindrivendesign.application.PersonController;
+import com.example.domaindrivendesign.application.controllers.PersonController;
 import com.example.domaindrivendesign.domain.dtos.PersonDTO;
 import com.example.domaindrivendesign.domain.services.PersonService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -40,13 +41,13 @@ public class PersonControllerImpl implements PersonController {
 
     @Override
     @PostMapping
-    public ResponseEntity<PersonDTO> save(@RequestBody PersonDTO personDTO) {
+    public ResponseEntity<PersonDTO> save(@RequestBody @Valid PersonDTO personDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(personService.save(personDTO));
     }
 
     @Override
     @PutMapping("/{id}")
-    public ResponseEntity<PersonDTO> update(@RequestBody PersonDTO personDTO, @PathVariable Long id) {
+    public ResponseEntity<PersonDTO> update(@RequestBody @Valid PersonDTO personDTO, @PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(personService.update(personDTO, id));
     }
 

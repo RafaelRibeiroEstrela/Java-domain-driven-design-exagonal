@@ -1,4 +1,4 @@
-package com.example.domaindrivendesign.application;
+package com.example.domaindrivendesign.application.controllers;
 
 import com.example.domaindrivendesign.domain.dtos.PersonDTO;
 import org.springframework.data.domain.Page;

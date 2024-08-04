@@ -13,6 +13,7 @@ public interface PersonRepository {
     List<Person> findAll();
     Optional<Person> findById(long id);
     Person save(Person person);
+    Person update(Person person);
     void delete(long id);
 
 }
