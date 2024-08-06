@@ -1,4 +1,4 @@
-package com.example.domaindrivendesign.domain.repositories;
+package com.example.domaindrivendesign.infrastructure.repositories;
 
 import com.example.domaindrivendesign.domain.models.Person;
 import org.springframework.data.domain.Page;

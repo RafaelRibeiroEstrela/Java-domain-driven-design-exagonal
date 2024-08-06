@@ -1,4 +1,4 @@
-package com.example.domaindrivendesign.domain.dtos;
+package com.example.domaindrivendesign.application.dtos;
 
 import com.example.domaindrivendesign.domain.models.Person;
 import jakarta.validation.constraints.NotEmpty;

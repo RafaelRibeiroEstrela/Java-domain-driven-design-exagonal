@@ -1,25 +1,27 @@
 package com.example.domaindrivendesign.domain.services.impl;
 
-import com.example.domaindrivendesign.domain.dtos.PersonDTO;
+import com.example.domaindrivendesign.application.dtos.PersonDTO;
 import com.example.domaindrivendesign.domain.models.Person;
-import com.example.domaindrivendesign.domain.repositories.PersonRepository;
 import com.example.domaindrivendesign.domain.services.PersonService;
 import com.example.domaindrivendesign.domain.services.exceptions.ResourceNotFoundException;
-import lombok.AllArgsConstructor;
+import com.example.domaindrivendesign.infrastructure.repositories.PersonRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-@AllArgsConstructor
 public class PersonServiceImpl implements PersonService {
 
-    private final PersonRepository personRepository;
+    private final PersonRepository personRepositoryPort;
+
+    public PersonServiceImpl(PersonRepository personRepositoryPort) {
+        this.personRepositoryPort = personRepositoryPort;
+    }
 
     @Override
     public Page<PersonDTO> findAll(Pageable pageable) {
-        Page<Person> page = personRepository.findAll(pageable);
+        Page<Person> page = personRepositoryPort.findAll(pageable);
         if (page.isEmpty()) {
             throw new ResourceNotFoundException("Nenhuma pessoa encontrada");
         }
@@ -28,7 +30,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<PersonDTO> findAll() {
-        List<Person> list = personRepository.findAll();
+        List<Person> list = personRepositoryPort.findAll();
         if (list.isEmpty()) {
             throw new ResourceNotFoundException("Nenhuma pessoa encontrada");
         }
@@ -37,7 +39,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public PersonDTO findById(long id) {
-        Person person = personRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Nenhuma pessoa encontrada"));
+        Person person = personRepositoryPort.findById(id).orElseThrow(() -> new ResourceNotFoundException("Nenhuma pessoa encontrada"));
         return new PersonDTO(person);
     }
 
@@ -45,7 +47,7 @@ public class PersonServiceImpl implements PersonService {
     public PersonDTO save(PersonDTO personDTO) {
         Person person = new Person();
         personDTO.copyToPerson(person);
-        person = personRepository.save(person);
+        person = personRepositoryPort.save(person);
         return new PersonDTO(person);
     }
 
@@ -53,14 +55,14 @@ public class PersonServiceImpl implements PersonService {
     public PersonDTO update(PersonDTO personDTO, long id) {
         Person person = findById(id).toPerson();
         personDTO.copyToPerson(person);
-        person = personRepository.update(person);
+        person = personRepositoryPort.update(person);
         return new PersonDTO(person);
     }
 
     @Override
     public void delete(long id) {
         try {
-            personRepository.delete(id);
+            personRepositoryPort.delete(id);
         } catch (EmptyResultDataAccessException e) {
             throw new ResourceNotFoundException("Nenhuma pessoa encontrada");
         }

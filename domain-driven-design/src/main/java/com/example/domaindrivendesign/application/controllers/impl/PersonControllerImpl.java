@@ -1,7 +1,7 @@
 package com.example.domaindrivendesign.application.controllers.impl;
 
 import com.example.domaindrivendesign.application.controllers.PersonController;
-import com.example.domaindrivendesign.domain.dtos.PersonDTO;
+import com.example.domaindrivendesign.application.dtos.PersonDTO;
 import com.example.domaindrivendesign.domain.services.PersonService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

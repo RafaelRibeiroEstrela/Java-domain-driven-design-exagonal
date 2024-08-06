@@ -1,6 +1,6 @@
 package com.example.domaindrivendesign.domain.services;
 
-import com.example.domaindrivendesign.domain.dtos.PersonDTO;
+import com.example.domaindrivendesign.application.dtos.PersonDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

@@ -1,9 +1,9 @@
 package com.example.domaindrivendesign.infrastructure.repositories.impl;
 
 import com.example.domaindrivendesign.domain.models.Person;
-import com.example.domaindrivendesign.domain.repositories.PersonRepository;
+import com.example.domaindrivendesign.infrastructure.repositories.PersonRepository;
 import com.example.domaindrivendesign.infrastructure.entities.PersonEntity;
-import com.example.domaindrivendesign.infrastructure.repositories.PersonJpaRepository;
+import com.example.domaindrivendesign.infrastructure.repositories.jpa.PersonJpaRepository;
 import com.example.domaindrivendesign.infrastructure.repositories.excetpions.DatabaseException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.cache.annotation.CacheEvict;
